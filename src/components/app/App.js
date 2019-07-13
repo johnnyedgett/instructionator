@@ -1,28 +1,32 @@
-import React from 'react'
-import { createMuiTheme, withStyles, Typography, CssBaseline } from '@material-ui/core'
-import { ThemeProvider } from '@material-ui/styles';
+import React, { useEffect } from 'react'
+import { withStyles, Typography, CssBaseline } from '@material-ui/core'
 import { Switch, Route, Link } from 'react-router-dom'
 import Homepage from '../homepage/Homepage'
 import SearchPage from '../searchpage/SearchPage'
 import Navbar from '../navbar/Navbar'
 import Navside from '../navside/Navside'
+import { checkBrowser } from '../../redux/actions/browser'
+import { connect } from 'react-redux'
 
 const styles = {
     textCenter: {
         textAlign: 'center'
     }
 }
-const theme = createMuiTheme({
-    // palette: {
-        // primary: {
-            // main: '#FFFFFF'
-        // }
-    // }
-});
+
+const mapDispatchToProps = dispatch => {
+    return {
+        checkBrowser: () => dispatch(checkBrowser())
+    }
+}
+
 function App(props){
     const { classes } = props;
+    // On mount, check if the user is on mobile or desktop browser
+    useEffect(() => {
+        props.checkBrowser()
+    }, [])
     return (
-        // <ThemeProvider theme={theme}>
             <div>
                 <CssBaseline/>
                 <Navbar/>
@@ -48,8 +52,7 @@ function App(props){
                     }}/>
                 </Switch>
             </div>
-        // </ThemeProvider>
     );
 };
 
-export default withStyles(styles)(App);
+export default connect(null, mapDispatchToProps)(withStyles(styles)(App));

@@ -6,7 +6,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import { connect } from 'react-redux'
 import Popup from '../popup/Popup'
 import Login from '../login/Login';
-
+import history from '../../util/history'
 const styles = {
     root: {
         marginLeft: '10vw',
@@ -60,8 +60,10 @@ function SearchPage(props){
                                     if(props.user.loggedIn){
 
                                     } else {
-                                        setPopupChild(<Login/>)
-                                        setShowPopup(true)
+                                        history.push("/login")
+                                        // For now, going to skip using the popup idea.
+                                        // setPopupChild(<Login/>)
+                                        // setShowPopup(true)
                                     }
                                 }}>
                                 <FavoriteIcon />

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { AppBar, Toolbar, Typography, IconButton, createMuiTheme } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import { withStyles, ThemeProvider } from '@material-ui/styles';
@@ -13,11 +13,17 @@ const styles = {
     },
     grow: {
         flexGrow: 1
+    },
+    link: {
+        textDecoration: 'none',
+        color: 'inherit'
     }
 };
 
 const mapStateToProps = state => {
-
+    return {
+        user: state.user
+    }
 }
 
 const mapDispatchToProps = dispatch => {
@@ -28,13 +34,18 @@ const mapDispatchToProps = dispatch => {
 
 function Navbar(props){
     const { classes } = props;
+    
+    useEffect(() => {
+        console.log(props.user)
+    }, [])
+
     return (
         <AppBar
             position="sticky"
             elevation={1}
             color="inherit">
                 <Toolbar>
-                    <IconButton
+                     <IconButton
                         edge="start"
                         color="inherit"
                         onClick={() => props.toggleLeftMenu()}>
@@ -42,9 +53,15 @@ function Navbar(props){
                     </IconButton>
                     <Typography variant="h6"><Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>Instuctionator</Link></Typography>
                     <div className={classes.grow}/>
-                    <IconButton>
-                        <Person/>
-                    </IconButton>
+                    {props.user.loggedIn?(
+                        <IconButton>
+                            <Person/>
+                        </IconButton>
+                    ):(
+                        <div>
+                           <Typography variant="body2" color="inherit"> <Link to="/login" className={classes.link}>Login</Link> | <Link to="/register" className={classes.link}>Register</Link> </Typography>
+                        </div>
+                    )}
                 </Toolbar>
         </AppBar>
     );

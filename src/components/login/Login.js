@@ -29,13 +29,14 @@ function Login(props){
     const [dog, setDog] = useState(false)
     const [height, setHeight] = useState('35vh')
     const audio = new Audio(require('../../assets/Mus_dogsong.ogg'));
+
     return (
         <div
             className={classes.root}>
                 <Paper
                     square={false}
                     style={{
-                        width: '30vw',
+                        width: '50vw',
                         height: height,
                         paddingTop: '5vh'
                     }}
