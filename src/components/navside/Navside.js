@@ -1,7 +1,6 @@
 import React from 'react';
 import { withStyles, Drawer } from '@material-ui/core';
 import { toggleLeftMenu } from '../../redux/actions/menus'
-
 import { connect } from 'react-redux'
 const styles = {
     root: {

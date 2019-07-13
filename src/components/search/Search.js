@@ -3,6 +3,7 @@ import { TextField, Button } from '@material-ui/core';
 import { withStyles } from '@material-ui/styles';
 import history from '../../util/history';
 import isEmpty from 'lodash.isempty';
+import Popup from '../popup/Popup';
 
 const styles = {
     searchWidth: {
@@ -14,7 +15,6 @@ const styles = {
 function Search(props){
     const { classes } = props;
     const [input, setInput] = useState('');
-
     return (
         <div>
             <TextField

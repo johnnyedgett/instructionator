@@ -7,7 +7,7 @@ const styles = {
 
 const mapStateToProps = state => {
     return {
-        
+
     }
 }
 
@@ -18,8 +18,10 @@ const mapDispatchToProps = dispatch => {
 }
 
 function Register(props){
+    const { classes } = props;
     return (
-        <div>
+        <div
+            className={classes.root}>
             Register mounted
         </div>
     )

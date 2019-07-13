@@ -22,7 +22,7 @@ function Profile(props){
     return (
         <div
             className={classes.root}>
-            Register mounted
+            Profile mounted
         </div>
     )
 }

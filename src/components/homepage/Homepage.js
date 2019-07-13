@@ -8,8 +8,8 @@ const styles = {
     },
     searchHeader: {
         paddingTop: '25vh',
-        color: '#FFFFFF',
-        textShadow: '2px 2px #ff0000'
+        color: 'white',
+        textShadow: '1px 1px #000000'
     }
 }
 
@@ -26,7 +26,7 @@ function Homepage(props){
                 spacing={2}
                 style = {{ backgroundImage: `url(${require('../../assets/paintbrushes.jpeg')})`  }}>
                 <Grid item xs={12}>
-                    <Typography variant="h5" style={{ paddingTop: '25vh'}}>What are you trying to learn?</Typography>
+                    <Typography variant="h4" className={classes.searchHeader}>What are you trying to learn?</Typography>
                 </Grid>
                 <Grid item>
                     <Search/>
