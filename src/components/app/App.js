@@ -7,7 +7,10 @@ import Navbar from '../navbar/Navbar'
 import Navside from '../navside/Navside'
 import { checkBrowser } from '../../redux/actions/browser'
 import { connect } from 'react-redux'
-
+import Login from '../login/Login'
+import Register from '../register/Register'
+import Profile from '../profile/Profile';
+import Instruction from '../instruction/Instruction';
 const styles = {
     textCenter: {
         textAlign: 'center'
@@ -22,6 +25,7 @@ const mapDispatchToProps = dispatch => {
 
 function App(props){
     const { classes } = props;
+
     // On mount, check if the user is on mobile or desktop browser
     useEffect(() => {
         props.checkBrowser()
@@ -34,6 +38,10 @@ function App(props){
                 <Switch>
                     <Route exact path="/" component={Homepage}/>
                     <Route exact path="/res" component={SearchPage}/>
+                    <Route exact path="/login" component={Login}/>
+                    <Route exact path="/register" component={Register}/>
+                    <Route exact path="/profile" component={Profile}/>
+                    <Route exact path="/instruction" component={Instruction}/>
                     <Route component={() => {
                         return (
                             <div
