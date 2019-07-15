@@ -8,6 +8,7 @@ export const TOGGLE_PROFILE_MENU = "TOGGLE_PROFILE_MENU"
 // USER
 export const LOG_IN = "LOG_IN"
 export const LOG_OUT = "LOG_OUT"
+export const NO_USER = "NO_USER"
 
 // BROWSER TYPES
 export const DESKTOP = "DESKTOP"

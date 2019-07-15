@@ -1,7 +1,10 @@
-import { LOG_IN, LOG_OUT } from '../constants'
+import { LOG_IN, LOG_OUT, NO_USER } from '../constants'
 
-export const  LOGIN = (user) => {
-    return { type: LOG_IN, payload: user }
+export const LOGIN = (user) => {
+    if(user)
+        return { type: LOG_IN, payload: user }
+    else
+        return { type: NO_USER } 
 }
 
 export const LOGOUT = () => {

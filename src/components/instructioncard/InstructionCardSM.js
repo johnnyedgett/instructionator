@@ -5,7 +5,13 @@ import { Share } from '@material-ui/icons'
 import {RemoveRedEye} from '@material-ui/icons'
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import history from '../../util/history'
-
+import { addFavoriteToProfile } from '../../services/profile-service'
+import { connect } from 'react-redux'
+const mapStateToProps = state => {
+    return { 
+        user: state.user
+    }
+}
 function InstructionCardSM(props){
     return (
         <Card
@@ -36,13 +42,13 @@ function InstructionCardSM(props){
                 <CardActions>
                     <IconButton 
                         aria-label="Add to favorites"
-                        // onClick={()=> {
-                        //     if(props.user.loggedIn){
-                        //         // TODO
-                        //     } else {
-                        //         history.push("/login")
-                        //     }
-                        // }}
+                        onClick={()=> {
+                            if(props.user.loggedIn){
+                                addFavoriteToProfile(props.obj.id)
+                            } else {
+                                history.push("/login")
+                            }
+                        }}
                         >
                         <FavoriteIcon />
                     </IconButton>
@@ -62,4 +68,4 @@ function InstructionCardSM(props){
     )
 }
 
-export default (InstructionCardSM)
+export default connect(mapStateToProps, null)(InstructionCardSM)

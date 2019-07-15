@@ -13,3 +13,13 @@ export const getTopInstructions = callback => {
             console.error(err);
         })
 }
+
+export const getInstructionDetails = (id, i, callback) => {
+    axios.get(`/api/instruction/get?id=${id}`)
+        .then(res=>{
+            callback(res.data, i)
+        })
+        .catch(err => {
+            console.error(err);
+        })
+}

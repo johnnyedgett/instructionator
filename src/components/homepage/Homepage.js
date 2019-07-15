@@ -35,9 +35,6 @@ function Homepage(props){
         })
         setPopular(tmp)
     }
-    useEffect(() => {
-        console.log(popular)
-    }, [popular])
     return (
         <div
             className={classes.root}>

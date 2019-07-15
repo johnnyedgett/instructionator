@@ -6,6 +6,8 @@ import SearchPage from '../searchpage/SearchPage'
 import Navbar from '../navbar/Navbar'
 import Navside from '../navside/Navside'
 import { checkBrowser } from '../../redux/actions/browser'
+import { LOGIN } from '../../redux/actions/user'
+import { checkUser } from '../../services/auth-service'
 import { connect } from 'react-redux'
 import Login from '../login/Login'
 import Register from '../register/Register'
@@ -19,15 +21,15 @@ const styles = {
 
 const mapDispatchToProps = dispatch => {
     return {
-        checkBrowser: () => dispatch(checkBrowser())
+        checkBrowser: () => dispatch(checkBrowser()),
+        LOGIN: (user) => dispatch(LOGIN(user))
     }
 }
 
 function App(props){
     const { classes } = props;
-
-    // On mount, check if the user is on mobile or desktop browser
     useEffect(() => {
+        checkUser(props.LOGIN)
         props.checkBrowser()
     }, [])
     return (
@@ -42,6 +44,7 @@ function App(props){
                     <Route exact path="/register" component={Register}/>
                     <Route exact path="/profile" component={Profile}/>
                     <Route exact path="/instruction" component={Instruction}/>
+                    <Route exact path="/create" component={() => { return (<div>Thanks for your interest! This isn't ready yet :)</div>)}}/>
                     <Route component={() => {
                         return (
                             <div

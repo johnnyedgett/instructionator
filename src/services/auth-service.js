@@ -20,10 +20,10 @@ export const logout = (user, callback) => {
 export const checkUser = (callback) => {
     axios.get(`/api/auth/currentUser`)
         .then(res => {
-            callback(res.data, true)
+            callback(res.data)
         })
         // User is not authenticatied
         .catch(err => {
-            callback(null, false);
+            callback(null);
         })
 }

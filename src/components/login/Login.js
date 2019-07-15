@@ -71,6 +71,7 @@ function Login(props){
                                     </Grid>
                                     <Grid item>
                                         <TextField
+                                            label="Username"
                                             variant="outlined"
                                             value={username}
                                             name="username"
@@ -86,6 +87,7 @@ function Login(props){
                                     </Grid>
                                     <Grid item>
                                         <TextField
+                                            label="Password"
                                             variant="outlined"
                                             value={password}
                                             name="password"
