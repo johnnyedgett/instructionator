@@ -7,11 +7,13 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import history from '../../util/history'
 import { addFavoriteToProfile } from '../../services/profile-service'
 import { connect } from 'react-redux'
+
 const mapStateToProps = state => {
     return { 
         user: state.user
     }
 }
+
 function InstructionCardSM(props){
     return (
         <Card
